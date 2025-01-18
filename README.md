@@ -65,7 +65,7 @@ The `google_sheets_crud` Python package provides a simple and efficient way to p
     Use the GoogleSheetsCRUD class to perform operations on your Google Sheet. Below is an example script demonstrating how to use the package:
 
     ```sh
-    from google_sheets_crud import GoogleSheetsCRUD
+    from google_sheets_sync import GoogleSheetsCRUD
 
     def main():
         # Initialize the CRUD class
@@ -73,37 +73,36 @@ The `google_sheets_crud` Python package provides a simple and efficient way to p
 
         # Read data from the sheet
         print("Reading data...")
-        data = sheets_crud.read_sheet("testsheet")
+        data = sheets_crud.readSheet("testsheet")
         print("Current data in the sheet:")
         for row in data:
             print(row)
 
         # Append a new row
         print("\nAppending a new row...")
-        append_response = sheets_crud.append_row(["New", "Data"], "testsheet")
+        append_response = sheets_crud.appendRow(["New", "Data"], "testsheet")
         print(f"Append response: {append_response}")
 
         # Prepend a new row
         print("\nPrepending a new row...")
-        prepend_response = sheets_crud.prepend_row(["Prepended", "Data"], "testsheet")
+        prepend_response = sheets_crud.prependRow(["Prepended", "Data"], "testsheet")
         print(f"Prepend response: {prepend_response}")
 
         # Update a specific row
         print("\nUpdating row 2...")
-        update_response = sheets_crud.update_row(2, ["Updated", "Data"], "testsheet")
+        update_response = sheets_crud.updateRow(2, ["Updated", "Data"], "testsheet")
         print(f"Update response: {update_response}")
 
         # Delete a specific row
         print("\nDeleting row 3...")
-        sheets_crud.delete_row(3, "testsheet")
+        sheets_crud.deleteRow(3, "testsheet")
 
         # Delete and shift rows up
         print("\nDeleting row 2 and shifting rows up...")
-        sheets_crud.delete_row_and_shift_up(2, "testsheet")
+        sheets_crud.deleteRowAndShiftUp(2, "testsheet")
 
     if __name__ == "__main__":
         main()
-
     ```
 
 3. **Running the Script**:

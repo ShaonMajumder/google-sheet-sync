@@ -142,7 +142,7 @@ class GoogleSheetsCRUD:
 
     def prependRow(self, new_row, sheet_name):
         try:
-            values = self.read_sheet(sheet_name)
+            values = self.readSheet(sheet_name)
             updated_values = [new_row] + values
             range_to_update = f"{sheet_name}!A1:Z"
             result = self.service.spreadsheets().values().update(
@@ -172,7 +172,7 @@ class GoogleSheetsCRUD:
 
     def deleteRow(self, row_index, sheet_name):
         try:
-            values = self.read_sheet(sheet_name)
+            values = self.readSheet(sheet_name)
             if not values or row_index > len(values):
                 print("Row index out of range.")
                 return
@@ -187,7 +187,7 @@ class GoogleSheetsCRUD:
 
     def deleteRowAndShiftUp(self, row_index, sheet_name):
         try:
-            values_original = self.read_sheet(sheet_name)
+            values_original = self.readSheet(sheet_name)
             length_data = len(values_original)
             if not values_original or row_index > length_data:
                 print("Row index out of range.")
